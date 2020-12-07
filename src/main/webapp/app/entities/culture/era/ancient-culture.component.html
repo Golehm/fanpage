@@ -1,0 +1,47 @@
+<div>
+    <h2 id="page-heading" class="text-center">
+        <span>Kultury antyczne</span>
+    </h2>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="cultures?.length === 0">
+        <span>Nie ma jeszcze dodanych kultur z tej ery!</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="cultures && cultures.length > 0">
+        <table class="table table-hover" aria-describedby="page-heading">
+            <thead>
+            <tr>
+                <th scope="col" ><span>Image</span></th>
+                <th scope="col" ><span>Name</span></th>
+                <th scope="col" ><span>Unit</span></th>
+                <th scope="col" ><span>Unit Description</span></th>
+                <th scope="col" ><span>Quarter</span></th>
+                <th scope="col" ><span>Quarter Description</span></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let culture of cultures ;trackBy: trackId">
+            <tr *ngIf="culture.era === 'ANCIENT'">
+                <td>
+                    <a *ngIf="culture.image" (click)="openFile(culture.imageContentType, culture.image)">
+                        <img [src]="'data:' + culture.imageContentType + ';base64,' + culture.image" style="max-height: 30px;" alt="culture image"/>
+                    </a>
+                </td>
+                <td>{{ culture.name }}</td>
+                <td>{{ culture.unit }}</td>
+                <td>{{ culture.unitDescription }}</td>
+                <td>{{ culture.quarter }}</td>
+                <td>{{ culture.quarterDescription }}</td>
+                <td>
+                    <button type="submit"
+                            [routerLink]="['/culture', culture.id, culture.name]"
+                            class="btn btn-info btn-sm">
+                        <fa-icon icon="eye"></fa-icon>
+                        <span class="d-none d-md-inline">Zobacz</span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

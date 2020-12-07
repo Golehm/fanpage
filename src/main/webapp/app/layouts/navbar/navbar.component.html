@@ -7,7 +7,53 @@
         <fa-icon icon="bars"></fa-icon>
     </a>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
+            <li ngbDropdown class="nav-item dropdown pointer" display="dynamic">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="cultures-menu">
+                    <span>
+                        <fa-icon icon="th-list"></fa-icon>
+                        <span>Kultury</span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="culture/ancient" (click)="collapseNavbar()">
+                            <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                            <span>Era antyczna</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="culture/classical" (click)="collapseNavbar()">
+                            <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                            <span>Era klasyczna</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" (click)="collapseNavbar()">
+                            <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                            <span>Era średniowieczna</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" (click)="collapseNavbar()">
+                            <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                            <span>Wczesna era nowożytna</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" (click)="collapseNavbar()">
+                            <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                            <span>Era przemysłowa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" (click)="collapseNavbar()">
+                            <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                            <span>Era współczesna</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>

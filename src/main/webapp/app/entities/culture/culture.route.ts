@@ -11,6 +11,8 @@ import { CultureService } from './culture.service';
 import { CultureComponent } from './culture.component';
 import { CultureDetailComponent } from './culture-detail.component';
 import { CultureUpdateComponent } from './culture-update.component';
+import { AncientCultureComponent } from 'app/entities/culture/era/ancient-culture.component';
+import { ClassicalCultureComponent } from 'app/entities/culture/era/classical-culture.component';
 
 @Injectable({ providedIn: 'root' })
 export class CultureResolve implements Resolve<ICulture> {
@@ -42,7 +44,6 @@ export const cultureRoute: Routes = [
       authorities: [Authority.USER],
       pageTitle: 'Cultures',
     },
-    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
@@ -79,5 +80,37 @@ export const cultureRoute: Routes = [
       pageTitle: 'Cultures',
     },
     canActivate: [UserRouteAccessService],
+  },
+  {
+    path: ':id/:name',
+    component: CultureDetailComponent,
+    resolve: {
+      culture: CultureResolve,
+    },
+    data: {
+      pageTitle: 'Cultures',
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: 'ancient',
+    component: AncientCultureComponent,
+    resolve: {
+      culture: CultureResolve,
+    },
+    data: {
+      pageTitle: 'Cultures',
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: 'classical',
+    component: ClassicalCultureComponent,
+    resolve: {
+      culture: CultureResolve,
+    },
+    data: {
+      pageTitle: 'Cultures',
+    },
   },
 ];

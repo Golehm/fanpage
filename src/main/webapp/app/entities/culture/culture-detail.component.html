@@ -1,59 +1,51 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="culture">
-            <h2><span>Culture</span> {{ culture.id }}</h2>
-
-            <hr>
+            <h2 *jhiHasAnyAuthority="'ROLE_ADMIN'"><span>Culture</span> {{ culture.id }}</h2>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span>Era</span></dt>
-                <dd>
+                <dt *jhiHasAnyAuthority="'ROLE_ADMIN'"><span>Era</span></dt>
+                <dd *jhiHasAnyAuthority="'ROLE_ADMIN'">
                     <span>{{ culture.era }}</span>
                 </dd>
-                <dt><span>Kind</span></dt>
-                <dd>
+                <dt *jhiHasAnyAuthority="'ROLE_ADMIN'"><span>Kind</span></dt>
+                <dd *jhiHasAnyAuthority="'ROLE_ADMIN'">
                     <span>{{ culture.kind }}</span>
                 </dd>
-                <dt><span>Image</span></dt>
+                <dt *jhiHasAnyAuthority="'ROLE_ADMIN'"><span>Image</span></dt>
                 <dd>
                     <div *ngIf="culture.image">
                         <a (click)="openFile(culture.imageContentType, culture.image)">
                             <img [src]="'data:' + culture.imageContentType + ';base64,' + culture.image" style="max-width: 100%;" alt="culture image"/>
                         </a>
-                        {{ culture.imageContentType }}, {{ byteSize(culture.image) }}
+                        <span *jhiHasAnyAuthority="'ROLE_ADMIN'">{{ culture.imageContentType }}, {{ byteSize(culture.image) }}</span>
                     </div>
                 </dd>
-                <dt><span>Name</span></dt>
-                <dd>
-                    <span>{{ culture.name }}</span>
-                </dd>
-                <dt><span>Unit</span></dt>
-                <dd>
-                    <span>{{ culture.unit }}</span>
-                </dd>
-                <dt><span>Unit Description</span></dt>
-                <dd>
-                    <span>{{ culture.unitDescription }}</span>
-                </dd>
-                <dt><span>Quarter</span></dt>
-                <dd>
-                    <span>{{ culture.quarter }}</span>
-                </dd>
-                <dt><span>Quarter Description</span></dt>
-                <dd>
-                    <span>{{ culture.quarterDescription }}</span>
-                </dd>
+
             </dl>
 
-            <button type="submit"
+            <div class="row">
+                <div class="col-sm-4" style="text-align: center;"><span>{{ culture.name }}</span></div>
+                <div class="col-sm-4" style="text-align: center;"><span class="badge badge-light">{{ culture.unit }}</span></div>
+                <div class="col-sm-4" style="text-align: center;"><span class="badge badge-light">{{ culture.quarter }}</span></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4" style="text-align: center;"><p>{{culture.kind}}</p></div>
+                <div class="col-sm-4"><p>{{ culture.unitDescription }}</p></div>
+                <div class="col-sm-4"><p>{{ culture.quarterDescription }}</p></div>
+
+            </div>
+
+            <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
                 <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
             </button>
 
-            <button type="button"
+            <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"
                     [routerLink]="['/culture', culture.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
