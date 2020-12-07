@@ -192,4 +192,11 @@ ui bootstrap tweaks
   white-space: nowrap;
 }
 
+.logo-humankind {
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  background: url('../images/logo-humankind_400x400.png') no-repeat center top;
+  background-size: contain;
+}
 /* jhipster-needle-scss-add-main JHipster will add new css style */

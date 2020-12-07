@@ -7,6 +7,6 @@ export const HOME_ROUTE: Route = {
   component: HomeComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome, Java Hipster!',
+    pageTitle: 'Witamy na stronie o grze HUMANKIND!',
   },
 };
