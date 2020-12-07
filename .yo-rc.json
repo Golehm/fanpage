@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "pl.com.humankind"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "fanpage",
+    "packageName": "pl.com.humankind",
+    "packageFolder": "pl/com/humankind",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MGFmOWY4N2MxNzZhM2NiODJkY2VjYzg0OGFiMDMyMjAyMWI3MGE2NTIxOTEyOWM3OTdmYWU3NTg3MThjMDIxOTMxZjQwZjY5MWQ1MDM3MTk1OTBjZmFmOGJlY2FlMWYwNDBhMGZmMTI0NDViOTY2YWVkNGRlZjFmMTcwZjgzZTk=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1602580593490,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
