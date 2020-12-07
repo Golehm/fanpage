@@ -1,0 +1,52 @@
+{
+  "name": "Culture",
+  "fields": [
+    {
+      "fieldName": "era",
+      "fieldType": "Era",
+      "fieldValues": "ANCIENT,CLASSICAL,MEDIEVAL,EARLY_MODERN,INDUSTRIAL,CONTEMPORARY"
+    },
+    {
+      "fieldName": "kind",
+      "fieldType": "Kind",
+      "fieldValues": "EXPANSIONIST,SCIENTIST,BUILDER,AGRARIAN,WARMONGER,MERCHANT,AESTHETE,MILITARIST"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unitDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quarter",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quarterDescription",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201207193521",
+  "entityTableName": "culture",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

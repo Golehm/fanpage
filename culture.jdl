@@ -1,0 +1,14 @@
+entity Culture {
+    era Era
+    kind Kind
+	image ImageBlob
+	name String
+    unit String
+	unitDescription String
+    quarter String
+	quarterDescription String
+}
+
+enum Era { ANCIENT, CLASSICAL, MEDIEVAL, EARLY_MODERN, INDUSTRIAL, CONTEMPORARY }
+
+enum Kind { EXPANSIONIST, SCIENTIST, BUILDER, AGRARIAN, WARMONGER, MERCHANT, AESTHETE, MILITARIST }

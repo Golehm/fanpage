@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span>Cultures</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-culture" [routerLink]="['/culture/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Culture
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="cultures?.length === 0">
+        <span>No cultures found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="cultures && cultures.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Era</span></th>
+                    <th scope="col" ><span>Kind</span></th>
+                    <th scope="col" ><span>Image</span></th>
+                    <th scope="col" ><span>Name</span></th>
+                    <th scope="col" ><span>Unit</span></th>
+                    <th scope="col" ><span>Unit Description</span></th>
+                    <th scope="col" ><span>Quarter</span></th>
+                    <th scope="col" ><span>Quarter Description</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let culture of cultures ;trackBy: trackId">
+                    <td><a [routerLink]="['/culture', culture.id, 'view']">{{ culture.id }}</a></td>
+                    <td>{{ culture.era }}</td>
+                    <td>{{ culture.kind }}</td>
+                    <td>
+                        <a *ngIf="culture.image" (click)="openFile(culture.imageContentType, culture.image)">
+                            <img [src]="'data:' + culture.imageContentType + ';base64,' + culture.image" style="max-height: 30px;" alt="culture image"/>
+                        </a>
+                        <span *ngIf="culture.image">{{ culture.imageContentType }}, {{ byteSize(culture.image) }}</span>
+                    </td>
+                    <td>{{ culture.name }}</td>
+                    <td>{{ culture.unit }}</td>
+                    <td>{{ culture.unitDescription }}</td>
+                    <td>{{ culture.quarter }}</td>
+                    <td>{{ culture.quarterDescription }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/culture', culture.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/culture', culture.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(culture)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
