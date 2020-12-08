@@ -13,6 +13,10 @@ import { CultureDetailComponent } from './culture-detail.component';
 import { CultureUpdateComponent } from './culture-update.component';
 import { AncientCultureComponent } from 'app/entities/culture/era/ancient-culture.component';
 import { ClassicalCultureComponent } from 'app/entities/culture/era/classical-culture.component';
+import { MedievalCultureComponent } from './era/medieval-culture.component';
+import { EarlyModernCultureComponent } from './era/early-modern-culture.component';
+import { IndustrialCultureComponent } from './era/industrial-culture.component';
+import { ContemporaryCultureComponent } from './era/contemporary-culture.component';
 
 @Injectable({ providedIn: 'root' })
 export class CultureResolve implements Resolve<ICulture> {
@@ -110,6 +114,50 @@ export const cultureRoute: Routes = [
       culture: CultureResolve,
     },
     data: {
+      pageTitle: 'Cultures',
+    },
+  },
+  {
+    path: 'medieval',
+    component: MedievalCultureComponent,
+    resolve: {
+      culture: CultureResolve,
+    },
+    data: {
+      authorities: [],
+      pageTitle: 'Cultures',
+    },
+  },
+  {
+    path: 'early-modern',
+    component: EarlyModernCultureComponent,
+    resolve: {
+      culture: CultureResolve,
+    },
+    data: {
+      authorities: [],
+      pageTitle: 'Cultures',
+    },
+  },
+  {
+    path: 'industrial',
+    component: IndustrialCultureComponent,
+    resolve: {
+      culture: CultureResolve,
+    },
+    data: {
+      authorities: [],
+      pageTitle: 'Cultures',
+    },
+  },
+  {
+    path: 'contemporary',
+    component: ContemporaryCultureComponent,
+    resolve: {
+      culture: CultureResolve,
+    },
+    data: {
+      authorities: [],
       pageTitle: 'Cultures',
     },
   },

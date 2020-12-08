@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading" class="text-center">
-        <span>Kultury antyczne</span>
+        <span>Kultury wcześnie nowoczesne</span>
     </h2>
 
     <div class="alert alert-warning" id="no-result" *ngIf="cultures?.length === 0">
@@ -21,7 +21,7 @@
             </tr>
             </thead>
             <tbody *ngFor="let culture of cultures ;trackBy: trackId">
-            <tr *ngIf="culture.era === 'ANCIENT'">
+            <tr *ngIf="culture.era === 'EARLY_MODERN'">
                 <td>
                     <a *ngIf="culture.image" (click)="openFile(culture.imageContentType, culture.image)">
                         <img [src]="'data:' + culture.imageContentType + ';base64,' + culture.image" style="max-height: 30px;" alt="culture image"/>
@@ -45,3 +45,4 @@
         </table>
     </div>
 </div>
+
