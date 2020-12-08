@@ -33,7 +33,16 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-sm-4" style="text-align: center;"><p>{{culture.kind}}</p></div>
+                <div class="col-sm-4" style="text-align: center;" [ngSwitch]="culture.kind">
+                    <span *ngSwitchCase="'EXPANSIONIST'">Ekspancjoniści</span>
+                    <span *ngSwitchCase="'SCIENTIST'">Naukowcy</span>
+                    <span *ngSwitchCase="'BUILDER'">Budowniczy</span>
+                    <span *ngSwitchCase="'AGRARIAN'">Rolnicy</span>
+                    <span *ngSwitchCase="'WARMONGER'">Podżegacze wojenni</span>
+                    <span *ngSwitchCase="'MERCHANT'">Kupcy</span>
+                    <span *ngSwitchCase="'AESTHETE'">Esteci</span>
+                    <span *ngSwitchCase="'MILITARIST'">Militaryści</span>
+                </div>
                 <div class="col-sm-4"><p>{{ culture.unitDescription }}</p></div>
                 <div class="col-sm-4"><p>{{ culture.quarterDescription }}</p></div>
 
